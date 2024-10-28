@@ -1,0 +1,63 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: hsl(0, 0%, 100%);
+  box-shadow: 0 2px 4px hsl(0, 0%, 52%);
+
+  &__logo {
+    font-size: 20px;
+  }
+  &__navigation {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    & a {
+      padding: 12px 20px;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      border-radius: 4px;
+      background-color: hsl(0, 0%, 100%);
+      border: 1px solid hsl(0, 0%, 90%);
+
+      &:hover {
+        background-color: hsl(0, 0%, 98%);
+      }
+    }
+  }
+}
+
+.main {
+  background: hsl(0, 0%, 98%);
+  padding: 50px;
+}
+
+.card {
+  border: 1px solid hsl(0, 0%, 90%);
+  border-radius: 4px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 2px 4px hsl(0, 0%, 52%);
+
+  &:hover {
+    .card__data {
+      background: hsl(0, 0%, 98%);
+    }
+  }
+
+  &__data {
+    background: hsl(0, 0%, 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 20px;
+
+    & h3 {
+      margin-bottom: 10px;
+    }
+  }
+}

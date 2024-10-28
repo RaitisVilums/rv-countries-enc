@@ -1,27 +1,33 @@
-# RvCountryEncySpa
+https://restcountries.com/#endpoints-filter-response
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.11.
+# Front-end Style Guide
 
-## Development server
+## Layout
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The designs were created to the following widths:
 
-## Code scaffolding
+- Mobile: 375px
+- Desktop: 1440px
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+> 💡 These are just the design sizes. Ensure content is responsive and meets WCAG requirements by testing the full range of screen sizes from 320px to large screens.
 
-## Build
+## Colors
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Neutral
 
-## Running unit tests
+- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
+- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
+- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
+- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Typography
 
-## Running end-to-end tests
+### Body Copy
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Homepage Items: 14px
+- Detail Page: 16px
 
-## Further help
+### Fonts
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Family: [Nunito Sans](https://fonts.google.com/specimen/Nunito+Sans)
+- Weights: 300, 600, 800
