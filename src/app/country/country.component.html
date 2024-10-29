@@ -1,1 +1,77 @@
-<p>country works!</p>
+<section class="country-container">
+    <div class="back-button">
+        <a (click)="goBack()">Back</a>
+    </div>
+    <div class="country-details">
+        <div class="country-flag">
+            <img [src]="country.flags.png" [alt]="country.name.common + ' Flag'" />
+        </div>
+        <div class="country-info">
+            <h2>{{ country.name.common }}</h2>
+            <ul class="country-stats">
+                <li>
+                    <p class="country-stats-item">
+                        Native Name:
+                        <span>{{ nativeName }}</span>
+                    </p>
+                </li>
+                <li>
+                    <p class="country-stats-item">
+                        Population:
+                        <span>{{ country.population | number }}</span>
+                    </p>
+                </li>
+                <li>
+                    <p class="country-stats-item">
+                        Region:
+                        <span>{{ country.region }}</span>
+                    </p>
+                </li>
+                <li>
+                    <p class="country-stats-item">
+                        Sub Region:
+                        <span>{{ country.subregion }}</span>
+                    </p>
+                </li>
+                <li>
+                    <p class="country-stats-item">
+                        Capital:
+                        <span>{{ country.capital?.[0] }}</span>
+                    </p>
+                </li>
+                <li>
+                    <p class="country-stats-item">
+                        Top Level Domain:
+                        <span>{{ country.tld?.[0] }}</span>
+                    </p>
+                </li>
+                <li>
+                    <p class="country-stats-item">
+                        Currencies:
+                        <span>{{ currencyNames }}</span>
+                    </p>
+                </li>
+                <li>
+                    <p class="country-stats-item">
+                        Languages:
+                        <span>{{ languageNames }}</span>
+                    </p>
+                </li>
+            </ul>
+
+            <div class="border-countries">
+                <h4>Border Countries:</h4>
+                <ng-container *ngIf="borderCountries.length > 0; else noBorders">
+                    <ul class="border-countries-list">
+                        <li *ngFor="let border of borderCountries">
+                            <a [routerLink]="['/country', border.cca3]">{{ border.name.common }}</a>
+                        </li>
+                    </ul>
+                </ng-container>
+                <ng-template #noBorders>
+                    <p>No Border Countries</p>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</section>

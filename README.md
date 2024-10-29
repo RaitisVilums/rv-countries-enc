@@ -1,5 +1,7 @@
 https://restcountries.com/#endpoints-filter-response
 
+https://restcountries.com/v3.1/alpha/{code}
+
 # Front-end Style Guide
 
 ## Layout

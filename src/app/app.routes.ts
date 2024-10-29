@@ -9,7 +9,7 @@ export const routes: Routes = [
     redirectTo: 'home',
   },
   {
-    path: 'country',
+    path: 'country/:code',
     component: CountryComponent,
   },
   {
