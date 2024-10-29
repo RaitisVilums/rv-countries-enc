@@ -1,0 +1,55 @@
+.search-container {
+  margin-bottom: 40px;
+}
+
+.search {
+  display: flex;
+  gap: 20px;
+  max-width: 500px;
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  border: none;
+}
+
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 300px);
+  gap: 20px;
+  place-content: center;
+}
+.card {
+  border: 1px solid hsl(0, 0%, 90%);
+  border-radius: 4px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+  & img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+
+  &:hover {
+    .card__data {
+      background: hsl(0, 0%, 98%);
+    }
+  }
+
+  &__data {
+    background: hsl(0, 0%, 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 20px;
+
+    & h3 {
+      margin-bottom: 10px;
+    }
+  }
+}
