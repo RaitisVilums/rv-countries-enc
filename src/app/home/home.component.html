@@ -1,9 +1,14 @@
-<div class="search">
-    <lucide-angular [img]="Search" class="search-icon"></lucide-angular>
-    <input class="search-input" type="text" placeholder="Search country..." [(ngModel)]="searchQuery"
-        (keyup)="searchCountry()" />
-    <lucide-angular *ngIf="searchQuery" [img]="XCircleIcon" class="search-icon-x"
-        (click)="clearSearch()"></lucide-angular>
+<div class="wrapper">
+    <div class="search">
+        <lucide-angular [img]="Search" class="search-icon"></lucide-angular>
+        <input class="search-input" type="text" placeholder="Search country..." [(ngModel)]="searchQuery"
+            (keyup)="searchCountry()" />
+        <lucide-angular *ngIf="searchQuery" [img]="XCircleIcon" class="search-icon-x"
+            (click)="clearSearch()"></lucide-angular>
+    </div>
+
+    <h1>All Countries list</h1>
+
 </div>
 
 <div *ngIf="isLoading" class="loader">

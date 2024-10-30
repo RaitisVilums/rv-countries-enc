@@ -26,6 +26,7 @@ export class CountryListComponent implements OnInit {
   countriesService: CountriesService = inject(CountriesService);
   route: ActivatedRoute = inject(ActivatedRoute);
   code: string | null = this.route.snapshot.paramMap.get('code');
+  lang: string | null = this.route.snapshot.paramMap.get('lang');
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {

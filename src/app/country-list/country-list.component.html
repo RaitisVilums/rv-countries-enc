@@ -1,7 +1,9 @@
 <div class="country-list">
-    <a class="btn" [routerLink]="['/country', code]"><lucide-angular [img]="ArrowLeft"
-            class="btn-icon"></lucide-angular>Back</a>
-
+    <div class="wrapper">
+        <a class="btn" [routerLink]="['/country', code]"><lucide-angular [img]="ArrowLeft"
+                class="btn-icon"></lucide-angular>Back</a>
+        <h1>Countries sorted via {{lang}}</h1>
+    </div>
     <div *ngIf="isLoading" class="loader">
         Loading...
     </div>

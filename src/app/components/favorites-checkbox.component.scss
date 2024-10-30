@@ -26,10 +26,7 @@
   display: none;
 
   &:checked + .favlist {
-    background: hsl(0, 0%, 90%);
-
-    & .favlist__icon svg {
-      fill: hsl(0, 0%, 50%);
-    }
+    background: hsl(0, 0%, 100%);
+    color: rgb(224, 84, 84);
   }
 }

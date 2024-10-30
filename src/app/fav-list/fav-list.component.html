@@ -1,6 +1,8 @@
 <div class="favorites">
-    <a class="btn" href="/home"><lucide-angular [img]="ArrowLeft" class="btn-icon"></lucide-angular>Back</a>
-
+    <div class="wrapper">
+        <a class="btn" href="/home"><lucide-angular [img]="ArrowLeft" class="btn-icon"></lucide-angular>Back</a>
+        <h1>Your Favorites list</h1>
+    </div>
     <div *ngIf="isLoading" class="loader">
         Loading...
     </div>
