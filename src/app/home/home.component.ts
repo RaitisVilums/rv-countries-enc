@@ -1,9 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MOCK_DATA } from '../mock';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpErrorResponse,
+} from '@angular/common/http';
 import { LucideAngularModule, Search } from 'lucide-angular';
+import { CountriesService } from '../services/countries.service';
 
 @Component({
   selector: 'app-home',
@@ -14,20 +19,26 @@ import { LucideAngularModule, Search } from 'lucide-angular';
 })
 export class HomeComponent implements OnInit {
   readonly Search = Search;
-  countries: any[] = [];
-  private apiUrl =
-    'https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital,cca2';
-
-  constructor(private http: HttpClient) {}
+  countries = [];
+  isLoading = false;
+  http: HttpClient = inject(HttpClient);
+  countriesService: CountriesService = inject(CountriesService);
 
   ngOnInit(): void {
-    this.http.get<any[]>(this.apiUrl).subscribe(
-      (data) => {
-        this.countries = data;
+    this.fetchCountries();
+  }
+
+  fetchCountries() {
+    this.isLoading = true;
+    this.countriesService.GetCountries().subscribe({
+      next: (country) => {
+        this.countries = country;
+        this.isLoading = false;
       },
-      (error) => {
-        console.error('Error fetching countries:', error);
-      }
-    );
+      error: (err: HttpErrorResponse) => {
+        console.error(err);
+        this.isLoading = false;
+      },
+    });
   }
 }

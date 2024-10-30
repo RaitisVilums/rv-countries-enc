@@ -12,7 +12,7 @@
                 <li>
                     <p class="country-stats-item">
                         Native Name:
-                        <span>{{ nativeName }}</span>
+                        <span>{{ country.name.common }}</span>
                     </p>
                 </li>
                 <li>
@@ -48,29 +48,24 @@
                 <li>
                     <p class="country-stats-item">
                         Currencies:
-                        <span>{{ currencyNames }}</span>
+                        <!-- <span>{{ country.currencies }}</span> -->
                     </p>
                 </li>
                 <li>
                     <p class="country-stats-item">
                         Languages:
-                        <span>{{ languageNames }}</span>
+                        <!-- <span>{{ country.lan }}</span> -->
                     </p>
                 </li>
             </ul>
 
             <div class="border-countries">
                 <h4>Border Countries:</h4>
-                <ng-container *ngIf="borderCountries.length > 0; else noBorders">
-                    <ul class="border-countries-list">
-                        <li *ngFor="let border of borderCountries">
-                            <a [routerLink]="['/country', border.cca3]">{{ border.name.common }}</a>
-                        </li>
-                    </ul>
-                </ng-container>
-                <ng-template #noBorders>
-                    <p>No Border Countries</p>
-                </ng-template>
+                <!-- <ul class="border-countries-list">
+                    <li *ngFor="let country of country.border">
+                        <a [routerLink]="['/country', country.cca3]">{{ country.name.common }}</a>
+                    </li>
+                </ul> -->
             </div>
         </div>
     </div>
