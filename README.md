@@ -64,16 +64,12 @@ A live demo of this application can be found [here](https://rv-countries-enc.ver
 
    ```bash
    ng serve
-   of
+   or
    ng serve --open
 
    ```
 
    I utilized ng serve --open
-
-   ```
-
-   ```
 
 5. **Open the app**
 
