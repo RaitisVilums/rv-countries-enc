@@ -1,15 +1,21 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CountriesService } from '../services/countries.service';
 import { CountryFormated, CountryDetails } from '../models/country.model';
 import { LucideAngularModule, ArrowLeft } from 'lucide-angular';
 import { RouterModule } from '@angular/router';
+import { FavoritesCheckboxComponent } from '../components/favorites-checkbox.component';
 
 @Component({
   selector: 'app-country',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule, RouterModule],
+  imports: [
+    CommonModule,
+    LucideAngularModule,
+    RouterModule,
+    FavoritesCheckboxComponent,
+  ],
   templateUrl: './country.component.html',
   styleUrls: ['./country.component.scss'],
 })
@@ -19,7 +25,8 @@ export class CountryComponent implements OnInit {
   isLoading = false;
   errorMessage: string | null = null;
   countriesService: CountriesService = inject(CountriesService);
-  route: ActivatedRoute = inject(ActivatedRoute);
+  private route: ActivatedRoute = inject(ActivatedRoute);
+  private router: Router = inject(Router);
 
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
@@ -35,6 +42,7 @@ export class CountryComponent implements OnInit {
       this.countriesService.GetCountryByCode(code).subscribe({
         next: (country) => {
           const formattedData = this.formatCountryData(country as any);
+          this.fetchCountriesPopulationRank(formattedData.name);
           this.country = formattedData;
           this.isLoading = false;
         },
@@ -48,6 +56,31 @@ export class CountryComponent implements OnInit {
     }
   }
 
+  fetchCountriesPopulationRank(name: string | null) {
+    if (name) {
+      this.countriesService.GetCountryPopulationRank().subscribe({
+        next: (countries) => {
+          const country = countries?.find((c) => c.name.common === name);
+          if (country && this.country) {
+            this.country.populationRank = country.populationRank;
+          } else if (this.country) {
+            this.country.populationRank = 0;
+          }
+        },
+        error: (err) => {
+          console.error(err);
+          if (this.country) {
+            this.country.populationRank = 0;
+          }
+        },
+      });
+    } else {
+      if (this.country) {
+        this.country.populationRank = 0;
+      }
+    }
+  }
+
   formatCountryData(country: CountryDetails): CountryFormated {
     return {
       name: country.name.common,
@@ -56,9 +89,7 @@ export class CountryComponent implements OnInit {
       flag: country.flags.svg,
       area: country.area,
       capital: country.capital,
-      nativeName: country.name.nativeName
-        ? Object.values(country.name.nativeName)[0].common
-        : country.name.common,
+      official: country.name.official,
       languages: country.languages
         ? Object.entries(country.languages).map(([code, name]) => ({
             code,
@@ -67,7 +98,15 @@ export class CountryComponent implements OnInit {
         : [],
       borders: country?.borders || [],
       cca3: country.cca3,
+      populationRank: undefined,
     };
+  }
+
+  reload() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
   }
 
   goBack() {

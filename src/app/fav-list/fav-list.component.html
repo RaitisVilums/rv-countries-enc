@@ -1,0 +1,19 @@
+<div class="favorites">
+    <a class="btn" href="/home"><lucide-angular [img]="ArrowLeft" class="btn-icon"></lucide-angular>Back</a>
+
+    <div *ngIf="isLoading" class="loader">
+        Loading...
+    </div>
+
+    <div *ngIf="errorMessage && !isLoading" class="error-message">
+        {{ errorMessage }}
+    </div>
+
+    <div *ngIf="favorites.length === 0" class="loader">
+        <h1>Your Favorites list is empty</h1>
+    </div>
+
+    <ul class="favorites__grid" *ngIf="!isLoading && !errorMessage">
+        <app-country-card *ngFor="let favorite of favorites" [country]="favorite"></app-country-card>
+    </ul>
+</div>

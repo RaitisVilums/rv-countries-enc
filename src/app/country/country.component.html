@@ -1,6 +1,8 @@
 <div class="country">
-    <a class="btn" href="/home"><lucide-angular [img]="ArrowLeft" class="btn-icon"></lucide-angular>Back</a>
-
+    <div class="country__actions">
+        <a class="btn" href="/home"><lucide-angular [img]="ArrowLeft" class="btn-icon"></lucide-angular>Back</a>
+        <!-- <app-favorites-checkbox [country]="country" [uniqueId]="country.cca3"></app-favorites-checkbox> -->
+    </div>
     <div *ngIf="isLoading" class="loader">
         Loading...
     </div>
@@ -19,7 +21,7 @@
                 <li>
                     <p class="country__item">
                         Native Name:
-                        <span>{{ country?.nativeName }}</span>
+                        <span>{{ country?.official }}</span>
                     </p>
                 </li>
                 <li>
@@ -60,6 +62,8 @@
                     </p>
                 </li>
             </ul>
+
+            <h4 class="country__rank">Population rank: {{ country?.populationRank }}</h4>
 
             <div class="country__border">
                 <h4>Border Countries:</h4>

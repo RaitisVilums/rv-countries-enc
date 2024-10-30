@@ -54,6 +54,10 @@
     }
   }
 
+  &__rank {
+    text-decoration: underline;
+  }
+
   &__border-item {
     display: flex;
     gap: 10px 5px;

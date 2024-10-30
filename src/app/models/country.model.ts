@@ -23,7 +23,7 @@ export const CountryDetailsSchema = z
     name: z
       .object({
         common: z.string(),
-        nativeName: z.record(z.string(), z.object({ common: z.string() })),
+        official: z.string(),
       })
       .readonly(),
     flags: z
@@ -48,7 +48,7 @@ export const CountryFormated = z.object({
   flag: z.string().url(),
   area: z.number().nullable().readonly(),
   capital: z.array(z.string()).readonly(),
-  nativeName: z.string(),
+  official: z.string(),
   languages: z
     .array(
       z.object({
@@ -59,7 +59,20 @@ export const CountryFormated = z.object({
     .readonly(),
   borders: z.array(z.string()).optional().readonly(),
   cca3: z.string().readonly(),
+  populationRank: z.number().optional().readonly(),
 });
+
+export const CountryPopulationRankSchema = z.array(
+  z.object({
+    name: z
+      .object({
+        common: z.string(),
+      })
+      .readonly(),
+    population: z.number(),
+    populationRank: z.number(),
+  })
+);
 
 export type Country = z.infer<typeof CountriesSchema>;
 export type CountryDetails = z.infer<typeof CountryDetailsSchema>;

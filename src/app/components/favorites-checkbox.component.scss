@@ -1,0 +1,35 @@
+.favlist {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 10;
+  padding: 5px;
+  border-radius: 50%;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    background: hsl(0, 0%, 90%);
+
+    & svg {
+      fill: hsl(0, 0%, 50%);
+    }
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.favlist__input {
+  display: none;
+
+  &:checked + .favlist {
+    background: hsl(0, 0%, 90%);
+
+    & .favlist__icon svg {
+      fill: hsl(0, 0%, 50%);
+    }
+  }
+}
