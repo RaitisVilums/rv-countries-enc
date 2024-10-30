@@ -29,11 +29,10 @@ A live demo of this application can be found [here](https://rv-countries-enc.ver
 
 ## Features
 
-- Search countries by name, language, or region.
+- Search countries by translations.
 - Display detailed information on each country.
 - Population ranking system for countries.
 - Add and manage favorite countries with local storage.
-- Responsive design for mobile and desktop views.
 
 ## Installation
 
