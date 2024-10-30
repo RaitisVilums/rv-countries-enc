@@ -1,0 +1,16 @@
+<div class="country-list">
+    <a class="btn" [routerLink]="['/country', code]"><lucide-angular [img]="ArrowLeft"
+            class="btn-icon"></lucide-angular>Back</a>
+
+    <div *ngIf="isLoading" class="loader">
+        Loading...
+    </div>
+
+    <div *ngIf="errorMessage && !isLoading" class="error-message">
+        {{ errorMessage }}
+    </div>
+
+    <ul class="country-list__grid" *ngIf="!isLoading && !errorMessage">
+        <app-country-card *ngFor="let country of countries" [country]="country"></app-country-card>
+    </ul>
+</div>

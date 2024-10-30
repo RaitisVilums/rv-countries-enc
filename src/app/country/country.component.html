@@ -1,57 +1,74 @@
 <div class="country">
-    <a class="btn" (click)="goBack()">Back</a>
+    <a class="btn" href="/home"><lucide-angular [img]="ArrowLeft" class="btn-icon"></lucide-angular>Back</a>
 
-    <div class="country__flag">
-        <img [src]="country?.flags?.svg" [alt]="country?.name?.common + ' Flag'" />
+    <div *ngIf="isLoading" class="loader">
+        Loading...
     </div>
 
-    <div class="country__info">
-        <h2>{{ country?.name?.common }}</h2>
-        <ul class="country__stats">
-            <li>
-                <p class="country__item">
-                    Native Name:
-                    <span>{{ country?.name?.common }}</span>
-                </p>
-            </li>
-            <li>
-                <p class="country__item">
-                    Population:
-                    <span>{{ country?.population | number }}</span>
-                </p>
-            </li>
-            <li>
-                <p class="country__item">
-                    Region:
-                    <span>{{ country?.region }}</span>
-                </p>
-            </li>
-            <li>
-                <p class="country__item">
-                    Sub Region:
-                    <span>{{ country?.subregion || 'N/A' }}</span>
-                </p>
-            </li>
-            <li>
-                <p class="country__item">
-                    Capital:
-                    <span>{{ country?.capital ? country?.capital?.join(', ') : 'N/A' }}</span>
-                </p>
-            </li>
-            <li>
-                <p class="country__item">
-                    Top Level Domain:
-                    <span>{{ country?.tld ? country?.tld?.join(', ') : 'N/A' }}</span>
-                </p>
-            </li>
-        </ul>
+    <div *ngIf="errorMessage && !isLoading" class="error-message">
+        {{ errorMessage }}
+    </div>
+    <div *ngIf="!isLoading && !errorMessage" class="country__container">
+        <div class="country__flag">
+            <img [src]="country?.flag" [alt]="country?.name + ' Flag'" />
+        </div>
 
-        <div class="country__border">
-            <h4>Border Countries:</h4>
-            <div *ngIf="country?.borders?.length; else noBorders">
-                <span *ngFor="let border of country?.borders" class="country__border-item">{{ border }}</span>
+        <div class="country__info">
+            <h2>{{ country?.name }}</h2>
+            <ul class="country__stats">
+                <li>
+                    <p class="country__item">
+                        Native Name:
+                        <span>{{ country?.nativeName }}</span>
+                    </p>
+                </li>
+                <li>
+                    <p class="country__item">
+                        Population:
+                        <span>{{ country?.population | number }}</span>
+                    </p>
+                </li>
+                <li>
+                    <p class="country__item">
+                        Capital:
+                        <span>{{ country?.capital }}</span>
+                    </p>
+                </li>
+                <li>
+                    <p class="country__item">
+                        Area:
+                        <span>{{ country?.area }}</span>
+                    </p>
+                </li>
+                <li>
+                    <p class="country__item">
+                        Languages:
+                        <span>
+                            <ng-container *ngFor="let language of country?.languages; let last = last">
+                                <a ngClass="country__item-link"
+                                    [routerLink]="['/country-list/',country?.cca3, language.name]">{{
+                                    language.name }}</a>{{ last ? '' :
+                                ', ' }}
+                            </ng-container>
+                        </span>
+                    </p>
+                </li>
+                <li>
+                    <p class="country__item">
+                        Country Code:
+                        <span>{{ country?.countryCode }}</span>
+                    </p>
+                </li>
+            </ul>
+
+            <div class="country__border">
+                <h4>Border Countries:</h4>
+                <div ngClass="country__border-item" *ngIf="country?.borders?.length; else noBorders">
+                    <a [routerLink]="['/country', border]" ngClass="btn" *ngFor="let border of country?.borders">{{
+                        border }}</a>
+                </div>
+                <ng-template #noBorders><span>No bordering countries</span></ng-template>
             </div>
-            <ng-template #noBorders><span>No bordering countries</span></ng-template>
         </div>
     </div>
 </div>

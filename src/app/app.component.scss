@@ -38,6 +38,7 @@
 }
 
 .main {
+  min-height: 80vh;
   background: hsl(0, 0%, 98%);
   padding: 50px;
   display: flex;
@@ -47,4 +48,11 @@
     flex: 1;
     max-width: 1200px;
   }
+}
+
+.footer {
+  min-height: 60px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
 }

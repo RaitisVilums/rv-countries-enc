@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { CountryComponent } from './country/country.component';
 import { HomeComponent } from './home/home.component';
+import { CountryListComponent } from './country-list/country-list.component';
 
 export const routes: Routes = [
   {
@@ -15,5 +16,9 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+  },
+  {
+    path: 'country-list/:code/:lang',
+    component: CountryListComponent,
   },
 ];

@@ -64,9 +64,25 @@ a {
   cursor: pointer;
 }
 
-.loader {
+.loader,
+.error-message {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
+}
+
+.btn {
+  padding: 12px 20px;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  border-radius: 4px;
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid hsl(0, 0%, 90%);
+  max-width: 100px;
+
+  &:hover {
+    background-color: hsl(0, 0%, 98%);
+  }
 }

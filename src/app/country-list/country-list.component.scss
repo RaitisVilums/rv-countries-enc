@@ -1,0 +1,12 @@
+.country-list {
+  display: flex;
+  row-gap: 24px;
+  flex-direction: column;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    place-content: center;
+  }
+}
