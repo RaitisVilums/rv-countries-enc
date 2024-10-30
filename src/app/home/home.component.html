@@ -7,8 +7,9 @@
             (click)="clearSearch()"></lucide-angular>
     </div>
 
-    <h1>All Countries list</h1>
+    <h1 *ngIf="!searchQuery">All Countries List</h1>
 
+    <h1 *ngIf="searchQuery">Search - {{ searchQuery.toUpperCase() }}</h1>
 </div>
 
 <div *ngIf="isLoading" class="loader">

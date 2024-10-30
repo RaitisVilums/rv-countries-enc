@@ -5,8 +5,9 @@
 
   &__container {
     display: flex;
-    justify-items: center;
+    align-items: center;
     justify-content: space-evenly;
+    height: 100%;
   }
 
   &__flag {

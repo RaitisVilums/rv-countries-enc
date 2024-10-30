@@ -41,7 +41,6 @@ export class CountryListComponent implements OnInit {
       this.errorMessage = null;
       this.countriesService.GetCountryByLanguage(lang).subscribe({
         next: (countries) => {
-          console.log(countries);
           this.countries = countries;
           this.isLoading = false;
         },

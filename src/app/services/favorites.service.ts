@@ -33,9 +33,8 @@ export class FavoritesService {
   }
 
   isFavorite(country: Country): boolean {
-    return this.countries.some((favorite) => favorite.cca3 === country.cca3);
+    return this.countries.some((favorite) => favorite?.cca3 === country?.cca3);
   }
-
   addFavorite(country: Country) {
     if (!this.isFavorite(country)) {
       this.countries.push(country);
@@ -45,7 +44,7 @@ export class FavoritesService {
 
   removeFavorite(country: Country) {
     this.countries = this.countries.filter(
-      (favorite) => favorite.cca3 !== country.cca3
+      (favorite) => favorite?.cca3 !== country?.cca3
     );
     this.reloadPage();
     this.saveFavorites();

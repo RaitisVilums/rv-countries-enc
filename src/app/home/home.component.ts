@@ -57,15 +57,11 @@ export class HomeComponent implements OnInit {
         .GetCountryByTranslation(this.searchQuery)
         .subscribe({
           next: (country) => {
-            this.countries = country ? country : [];
-            if (this.countries.length === 0) {
-              this.errorMessage = 'No countries found for this search.';
-            }
+            this.countries = country;
             this.isLoading = false;
           },
           error: (err: HttpErrorResponse) => {
             this.errorMessage = `${err.message}. Please try again.`;
-            this.countries = [];
             this.isLoading = false;
           },
         });

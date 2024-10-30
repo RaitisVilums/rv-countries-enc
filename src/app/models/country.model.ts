@@ -15,7 +15,7 @@ export const CountriesSchema = z.object({
   population: z.number().readonly(),
   region: z.string().readonly(),
   capital: z.array(z.string()).readonly(),
-  cca3: z.string().length(2).readonly(),
+  cca3: z.string().readonly(),
 });
 
 export const CountryDetailsSchema = z
@@ -43,7 +43,7 @@ export const CountryDetailsSchema = z
 
 export const CountryFormated = z.object({
   name: z.string(),
-  countryCode: z.string().length(2),
+  countryCode: z.string(),
   population: z.number().readonly(),
   flag: z.string().url(),
   area: z.number().nullable().readonly(),
