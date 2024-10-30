@@ -83,4 +83,4 @@ A live demo of this application can be found [here](https://rv-countries-enc.ver
 
 ## Feedback
 
-This is my first Angular application, and I am excited to share it with the community. Any feedback, suggestions, or constructive criticism would be greatly appreciated to help me improve my skills and enhance the app. Feel free to open an issue or reach out if you have any comments or ideas!
+This is my first Angular application, and I am excited to share it with YOU!. Any feedback, suggestions, or constructive criticism would be greatly appreciated to help me improve my skills and enhance the app. Feel free to open an issue or reach out if you have any comments or ideas!
