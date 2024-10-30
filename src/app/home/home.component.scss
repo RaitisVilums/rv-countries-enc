@@ -1,21 +1,36 @@
-.search-container {
-  margin-bottom: 40px;
-}
-
 .search {
   display: flex;
-  gap: 20px;
-  max-width: 500px;
-  width: 100%;
-  padding: 10px 20px;
-  border-radius: 4px;
+  align-items: center;
+  width: 500px;
+  position: relative;
+  margin-bottom: 40px;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  border: none;
+  background: hsl(0, 0%, 100%);
+  border-radius: 4px;
+
+  &:focus-within {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1),
+      0 0 0 2px hsl(0, 0%, 90%);
+  }
+
+  &-input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+  }
+
+  &-icon {
+    display: inline-flex;
+    padding-left: 10px;
+  }
 }
 
 .countries-grid {
   display: grid;
-  grid-template-columns: repeat(4, 300px);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   place-content: center;
 }
@@ -52,4 +67,8 @@
       margin-bottom: 10px;
     }
   }
+}
+
+.country {
+  width: 100%;
 }

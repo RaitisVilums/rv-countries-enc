@@ -1,10 +1,17 @@
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 10px 20px;
   background: hsl(0, 0%, 100%);
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    flex: 1;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   &__logo {
     font-size: 20px;
@@ -33,4 +40,11 @@
 .main {
   background: hsl(0, 0%, 98%);
   padding: 50px;
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    flex: 1;
+    max-width: 1200px;
+  }
 }

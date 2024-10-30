@@ -1,19 +1,27 @@
-<section>
-    <div class="search-container">
-        <input class="search" type="text" placeholder="Search country..." />
-        <lucide-angular [img]="Search" class="my-icon"></lucide-angular>
-    </div>
-    <ul class="countries-grid">
-        <li class="card" *ngFor="let country of countries">
-            <a [routerLink]="['/country', country.cca2]">
-                <img [src]="country.flags.png" alt="{{ country.name.common }} Flag" />
-                <div class="card__data">
-                    <h3>{{ country.name.common }}</h3>
-                    <p>Population: {{ country.population }}</p>
-                    <p>Region: {{ country.region }}</p>
-                    <p>Capital: {{ country.capital[0] }}</p>
-                </div>
-            </a>
-        </li>
-    </ul>
-</section>
+<div class="search">
+    <lucide-angular [img]="Search" class="search-icon"></lucide-angular>
+    <input class="search-input" type="text" placeholder="Search country..." [(ngModel)]="searchQuery"
+        (keyup)="searchCountry()" />
+</div>
+
+<div *ngIf="isLoading" class="loader">
+    Loading...
+</div>
+
+<div *ngIf="errorMessage && !isLoading" class="error-message">
+    {{ errorMessage }}
+</div>
+
+<ul class="countries-grid" *ngIf="!isLoading && !errorMessage">
+    <li class="card" *ngFor="let country of countries">
+        <a [routerLink]="['/country', country.cca2]">
+            <img [src]="country.flags.svg" alt="{{ country.name.common }} Flag" />
+            <div class="card__data">
+                <h3>{{ country.name.common }}</h3>
+                <p>Population: {{ country.population | number }}</p>
+                <p>Region: {{ country.region }}</p>
+                <p>Capital: {{ country.capital[0] }}</p>
+            </div>
+        </a>
+    </li>
+</ul>
