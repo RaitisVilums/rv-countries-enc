@@ -5,17 +5,11 @@ import { CountriesService } from '../services/countries.service';
 import { CountryFormated, CountryDetails } from '../models/country.model';
 import { LucideAngularModule, ArrowLeft } from 'lucide-angular';
 import { RouterModule } from '@angular/router';
-import { FavoritesCheckboxComponent } from '../components/favorites-checkbox.component';
 
 @Component({
   selector: 'app-country',
   standalone: true,
-  imports: [
-    CommonModule,
-    LucideAngularModule,
-    RouterModule,
-    FavoritesCheckboxComponent,
-  ],
+  imports: [CommonModule, LucideAngularModule, RouterModule],
   templateUrl: './country.component.html',
   styleUrls: ['./country.component.scss'],
 })

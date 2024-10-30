@@ -1,35 +1,91 @@
-https://restcountries.com/#endpoints-filter-response
+# Country Encyclopedia SPA
 
-https://restcountries.com/v3.1/alpha/{code}
+A single-page application (SPA) that provides detailed information about countries using the [REST Countries API](https://restcountries.com/). This project is built with Angular, styled with SCSS, and utilizes Zod for TypeScript schema validation. Lucide is used for iconography.
 
-# Front-end Style Guide
+## Table of Contents
 
-## Layout
+- [Country Encyclopedia SPA](#country-encyclopedia-spa)
+  - [Table of Contents](#table-of-contents)
+  - [Demo](#demo)
+  - [Technologies Used](#technologies-used)
+  - [Features](#features)
+  - [Installation](#installation)
+    - [Prerequisites](#prerequisites)
+    - [Steps](#steps)
+  - [Usage](#usage)
+  - [Feedback](#feedback)
 
-The designs were created to the following widths:
+## Demo
 
-- Mobile: 375px
-- Desktop: 1440px
+A live demo of this application can be found [here](#).
 
-> 💡 These are just the design sizes. Ensure content is responsive and meets WCAG requirements by testing the full range of screen sizes from 320px to large screens.
+## Technologies Used
 
-## Colors
+- **[Angular](https://angular.io/)** - A platform and framework for building single-page client applications using HTML and TypeScript.
+- **[SCSS](https://sass-lang.com/)** - A CSS preprocessor for more maintainable and readable styling.
+- **[Lucide](https://lucide.dev/)** - Icon library used for UI elements.
+- **[Zod](https://zod.dev/)** - TypeScript-first schema declaration and validation library.
+- **[REST Countries API](https://restcountries.com/)** - Provides detailed information about countries.
 
-### Neutral
+## Features
 
-- Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
-- Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
-- Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
-- White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
+- Search countries by name, language, or region.
+- Display detailed information on each country.
+- Population ranking system for countries.
+- Add and manage favorite countries with local storage.
+- Responsive design for mobile and desktop views.
 
-## Typography
+## Installation
 
-### Body Copy
+### Prerequisites
 
-- Homepage Items: 14px
-- Detail Page: 16px
+- [Node.js](https://nodejs.org/) (version 14 or higher)
+- [Angular CLI](https://angular.io/cli) (version 12 or higher)
 
-### Fonts
+### Steps
 
-- Family: [Nunito Sans](https://fonts.google.com/specimen/Nunito+Sans)
-- Weights: 300, 600, 800
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/your-username/country-encyclopedia-spa.git
+   cd country-encyclopedia-spa
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   or
+   npm i
+   ```
+3. **Set up the environment**
+
+   No additional environment configuration is required as the app fetches data from the public REST Countries API.
+
+4. **Run the app**
+
+   ```bash
+   ng serve
+   of
+   ng serve --open
+
+   ```
+
+   I utilized ng serve --open
+
+   ```
+
+   ```
+
+5. **Open the app**
+
+   Open your browser and go to [http://localhost:4200](http://localhost:4200).
+
+## Usage
+
+1. Search Functionality: Use the search bar to filter countries by name.
+2. Favorites: Mark a country as favorite and view it in the favorites list.
+3. Population Rank: Each country has a ranking based on population size.
+
+## Feedback
+
+This is my first Angular application, and I am excited to share it with the community. Any feedback, suggestions, or constructive criticism would be greatly appreciated to help me improve my skills and enhance the app. Feel free to open an issue or reach out if you have any comments or ideas!
